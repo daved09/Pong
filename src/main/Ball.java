@@ -10,16 +10,14 @@ public class Ball extends JComponent{
 	private final int breite = 20 , hoehe = 20;
 	private boolean rechts = true, round = true, oben, unten, pause, newGame = true;
 	
-	public Ball(int x, int y)
-	{
+	public Ball(int x, int y){
 		setPosx(x);
 		setPosy(y);
 		setSize(breite, hoehe);
 		setLocation(x, y);
 	}
 	
-	public boolean isPauseNewGame()
-	{
+	public boolean isPauseNewGame()	{
 		if(pause || newGame)
 			return true;
 		else return false;
