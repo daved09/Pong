@@ -24,6 +24,7 @@ public class SpielFeld extends JPanel implements KeyListener{
 		new Thread(new Steuer1Thread()).start();
 		new Thread(new Steuer2Thread()).start();
 		new Thread(new Ballbewegung()).start();
+		new Thread(new Renderer()).start();
 	}
 	
 	private Paddle pad1, pad2;
@@ -260,5 +261,22 @@ public class SpielFeld extends JPanel implements KeyListener{
 				e.printStackTrace();
 			}
 		}
-	}	
+	}
+
+	private class Renderer implements Runnable{
+        public void run() {
+            try{
+                while (true){
+                    ball.repaint();
+                    pad1.repaint();
+                    pad2.repaint();
+                    Thread.sleep(1);
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
