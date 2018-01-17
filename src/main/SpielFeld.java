@@ -1,5 +1,9 @@
 package main;
 
+import components.Ball;
+import components.Collision;
+import components.Paddle;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -156,43 +160,25 @@ public class SpielFeld extends JPanel implements KeyListener{
 	
 	private void kollPad1()
 	{
-			if((ball.getPosx() <= pad1.getPosx()+20) && ((ball.getPosy() <= pad1.getPosy()+200)&&(ball.getPosy()+20 > pad1.getPosy()))){
-				if(w)
-				{
-					ball.oben();
-					ball.andereRichtung();
-				}
-				else if(s)
-				{
-					ball.unten();
-					ball.andereRichtung();
-				}
-				else
-				{
-					ball.mitte();
-					ball.andereRichtung();
-				}
-			}
+        if((ball.getPosx() <= pad1.getPosx()+20) && ((ball.getPosy() <= pad1.getPosy()+200)&&(ball.getPosy()+20 > pad1.getPosy()))){
+            if(w)
+                ball.collision(Collision.HOCH);
+            else if(s)
+                ball.collision(Collision.RUNTER);
+            else
+                ball.collision(Collision.MITTE);
+        }
 		}
 
 	private void kollPad2()
 	{
 		if((ball.getPosx() >= pad2.getPosx()-20) && ((ball.getPosy() <= pad2.getPosy()+200)&&(ball.getPosy()+20 > pad2.getPosy()))){
 			if(hoch)
-			{
-				ball.oben();
-				ball.andereRichtung();
-			}
+				ball.collision(Collision.HOCH);
 			else if(runter)
-			{
-				ball.unten();
-				ball.andereRichtung();
-			}
+				ball.collision(Collision.RUNTER);
 			else
-			{
-				ball.mitte();
-				ball.andereRichtung();
-			}
+				ball.collision(Collision.MITTE);
 		}				
 	}
 	

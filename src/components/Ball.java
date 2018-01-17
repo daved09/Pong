@@ -1,4 +1,4 @@
-package main;
+package components;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -100,6 +100,16 @@ public class Ball extends JComponent{
 	{
 		posx = 490;
 		posy = 350;
+	}
+
+	public void collision(Collision coll){
+		switch (coll){
+			case HOCH: oben(); break;
+			case MITTE: mitte(); break;
+			case RUNTER: unten(); break;
+			default: System.err.println("Gibt es nicht du Hurensohn!");
+		}
+		andereRichtung();
 	}
 	
 	public void addSpeed()
