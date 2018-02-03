@@ -39,7 +39,6 @@ public class SpielFeld extends JPanel implements KeyListener{
 		pad2 = new Paddle(1000-25, 250, 20, 200);
 		ball = new Ball(490, 350);
 		pt = new Punkteanzeige();
-//		pad1 = new Paddle(100, 100, 100, 100);
 		add(pad1);
 		add(pad2);
 		add(ball);
@@ -51,7 +50,6 @@ public class SpielFeld extends JPanel implements KeyListener{
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-//		g.drawRect(100, 100, 100, 100);
 		g.setColor(Color.WHITE);
 		g.drawRect(500, 0, 5, 800);
 		g.fillRect(500, 0, 5, 800);
@@ -169,7 +167,7 @@ public class SpielFeld extends JPanel implements KeyListener{
             else
                 ball.collision(Collision.MITTE);
         }
-		}
+	}
 
 	private void kollPad2()
 	{
@@ -226,10 +224,6 @@ public class SpielFeld extends JPanel implements KeyListener{
 				int z = 0;
 				while(true)
 				{
-//					if(koll())
-//					{
-//						ball.andereRichtung();
-//					}
 					if(toor())
 					{
 						ball.mitte();

@@ -107,7 +107,7 @@ public class Ball extends JComponent{
 			case HOCH: oben(); break;
 			case MITTE: mitte(); break;
 			case RUNTER: unten(); break;
-			default: System.err.println("Gibt es nicht du Hurensohn!");
+			default: System.err.println("Gibt es nicht Bitch!");
 		}
 		andereRichtung();
 	}
